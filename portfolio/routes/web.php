@@ -10,6 +10,8 @@ Route::get('/', function () {
 
 Route::get('/', [ProjectsController::class, 'index']);
 
+Route::get('/project/**', [ProjectsController::class, 'show']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

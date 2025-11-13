@@ -2,13 +2,12 @@
 
 @section('content')
 
-    <div class="border row p-4 mx-4">
+    <div class="row p-4 m-4">
         
         @foreach ($projects as $project)
 
-            <div class="col-4 p-4 my-3 border">
-                
-                <div class="h-100 border d-flex align-items-start justify-content-between flex-column">
+            <div class="col-12 col-md-6 col-lg-4 p-4 my-2">
+                <div class="h-100 p-4 border d-flex align-items-start justify-content-between flex-column">
                     <img src="{{ $project->img }}" alt="img">
                     
                     <h2 class="mt-2">{{ $project->name }}</h2>
@@ -25,19 +24,12 @@
                     
                     </div>
 
-                    <button class="w-100 btn btn-primary"><a class="text-white" href="{{ $project->repo_link }}">Repo Link</a></button>
+                    <button class="w-100 btn btn-primary"><a class="text-white" href="/project/{{ $project->name }}">In detail</a></button>
                 </div>
-
             </div>
 
         @endforeach
 
-    </div>
-
-    <div class="content">
-        <div class="container">
-            <p>Lorem ipsum</p>
-        </div>
     </div>
 
 @endsection
