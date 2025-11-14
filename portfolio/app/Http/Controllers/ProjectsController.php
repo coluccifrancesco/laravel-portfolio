@@ -12,7 +12,7 @@ class ProjectsController extends Controller
     {
         $projects = Project::all();
 
-        return view('welcome', compact('projects'));
+        return view('index', compact('projects'));
     }
 
     // Show the form for creating a new resource.
@@ -30,7 +30,7 @@ class ProjectsController extends Controller
     // Display the specified resource.
     public function show(Project $project)
     {
-        return view('projects.show', compact('user'));
+        return view('show', compact('project'));
     }
 
     // Show the form for editing the specified resource.

@@ -8,9 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [ProjectsController::class, 'index']);
+Route::get('/', [ProjectsController::class, 'index'])->name('projects.index');
 
-Route::get('/project/**', [ProjectsController::class, 'show']);
+Route::get('/project/{project}', [ProjectsController::class, 'show'])->name('projects.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

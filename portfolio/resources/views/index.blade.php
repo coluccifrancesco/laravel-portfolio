@@ -24,7 +24,9 @@
                     
                     </div>
 
-                    <button class="w-100 btn btn-primary"><a class="text-white" href="/project/{{ $project->name }}">In detail</a></button>
+                    <button class="w-100 btn btn-primary">
+                        <a class="text-white" href="{{ route('projects.show', $project->id) }}">In detail</a>
+                    </button>
                 </div>
             </div>
 
