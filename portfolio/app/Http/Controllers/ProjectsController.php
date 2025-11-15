@@ -12,37 +12,59 @@ class ProjectsController extends Controller
     {
         $projects = Project::all();
 
-        return view('index', compact('projects'));
+        return view('projects.index', compact('projects'));
     }
 
     // Show the form for creating a new resource.
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     // Store a newly created resource in storage.
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        $newProject = new Project();
+        
+        $newProject->name = $data['name'];
+        $newProject->description = $data['description'];
+        $newProject->tech_stack = json_encode($data['tech_stack']);
+        $newProject->img = $data['img'];
+        $newProject->repo_link = $data['repo_link'];
+        
+        $newProject->save();
+
+        return redirect()->route('projects.show', $newProject);
     }
 
     // Display the specified resource.
     public function show(Project $project)
     {
-        return view('show', compact('project'));
+        return view('projects.show', compact('project'));
     }
 
     // Show the form for editing the specified resource.
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        return view('projects.edit', data: compact('project'));
     }
 
     // Update the specified resource in storage.
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->all();
+
+        $project->name = $data['name'];
+        $project->description = $data['description'];
+        $project->tech_stack = $data['tech_stack'];
+        $project->img = $data['img'];
+        $project->repo_link = $data['repo_link'];
+        
+        $project->update();
+
+        return redirect()->route('projects.show', $project);
     }
 
     // Remove the specified resource from storage.

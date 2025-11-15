@@ -10,7 +10,15 @@ Route::get('/', function () {
 
 Route::get('/', [ProjectsController::class, 'index'])->name('projects.index');
 
+Route::get('/project/create', [ProjectsController::class, 'create'])->name('projects.create');
+
 Route::get('/project/{project}', [ProjectsController::class, 'show'])->name('projects.show');
+
+Route::get('/project/{project}/edit', [ProjectsController::class, 'edit'])->name('projects.edit');
+
+Route::post('/project/create', [ProjectsController::class, 'store'])->name('projects.store');
+
+Route::put('/project/{project}/update', [ProjectsController::class, 'update'])->name('projects.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
