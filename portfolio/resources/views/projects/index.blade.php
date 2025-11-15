@@ -33,9 +33,23 @@
 
                     </div>
 
-                    <button class="w-100 btn btn-primary">
-                        <a class="text-white" href="{{ route('projects.show', $project->id) }}">In detail</a>
-                    </button>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <button class="btn btn-primary">
+                            <a 
+                            class="text-white" 
+                            href="{{ route('projects.show', $project->id) }}">
+                                In detail
+                            </a>
+                        </button>
+
+                        <button class="btn btn-warning">
+                            <a 
+                            class="text-white" 
+                            href="{{ route('projects.edit', $project->id) }}">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
 

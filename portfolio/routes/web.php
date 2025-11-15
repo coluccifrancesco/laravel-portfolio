@@ -18,7 +18,7 @@ Route::get('/project/{project}/edit', [ProjectsController::class, 'edit'])->name
 
 Route::post('/project/create', [ProjectsController::class, 'store'])->name('projects.store');
 
-Route::put('/project/{project}/update', [ProjectsController::class, 'update'])->name('projects.update');
+Route::put('/project/{project}', [ProjectsController::class, 'update'])->name('projects.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
