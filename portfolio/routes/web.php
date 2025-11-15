@@ -16,7 +16,11 @@ Route::get('/project/{project}', [ProjectsController::class, 'show'])->name('pro
 
 Route::get('/project/{project}/edit', [ProjectsController::class, 'edit'])->name('projects.edit');
 
+Route::get('/project/{project}/areyousure', [ProjectsController::class, 'sureOfDestroy'])->name('projects.sureOfDestroy');
+
 Route::post('/project/create', [ProjectsController::class, 'store'])->name('projects.store');
+
+Route::delete('/project/{project}/destroy', [ProjectsController::class, 'destroy'])->name('projects.destroy');
 
 Route::put('/project/{project}', [ProjectsController::class, 'update'])->name('projects.update');
 

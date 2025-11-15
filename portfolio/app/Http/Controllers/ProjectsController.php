@@ -67,9 +67,17 @@ class ProjectsController extends Controller
         return redirect()->route('projects.show', $project);
     }
 
-    // Remove the specified resource from storage.
-    public function destroy(string $id)
+    // Asks if we're sure about deleting the project
+    public function sureOfDestroy(Project $project)
     {
-        //
+        return view('projects.destroy', data: compact('project'));
+    }
+
+    // Remove the specified resource from storage.
+    public function destroy(Project $project)
+    {
+        $project->delete();
+
+        return redirect()->route('projects.index');
     }
 }

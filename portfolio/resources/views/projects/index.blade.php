@@ -42,13 +42,23 @@
                             </a>
                         </button>
 
-                        <button class="btn btn-warning">
-                            <a 
-                            class="text-white" 
-                            href="{{ route('projects.edit', $project->id) }}">
-                                <i class="fa-solid fa-pencil"></i>
-                            </a>
-                        </button>
+                        <div>
+                            <button class="btn btn-warning">
+                                <a 
+                                class="text-white" 
+                                href="{{ route('projects.edit', $project->id) }}">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            </button>
+                            
+                            <button class="btn btn-danger">
+                                <a 
+                                class="text-white" 
+                                href="{{ route('projects.sureOfDestroy', $project->id) }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
