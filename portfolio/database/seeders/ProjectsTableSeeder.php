@@ -22,6 +22,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->tech_stack = json_encode($faker->words(5));
             $newProject->img = $faker->word();
             $newProject->repo_link = $faker->url();
+            $newProject->category_id = $faker->randomNumber(1, true);
 
             $newProject->save();
         }
