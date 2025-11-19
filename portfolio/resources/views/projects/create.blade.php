@@ -16,9 +16,18 @@
         </div>
 
         <div class="form-control my-2 d-flex align-tiems-start flex-column">
+            <label for="category_id">Category</label>
+            <select name="category_id" id="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-control my-2 d-flex align-tiems-start flex-column">
             <label for="tech_stack">Technologies Used</label>
             <input type="text" name="tech_stack" id="tech_stack"
-                value='["HTML", "CSS", "JavaScript", "React", "MySql, "NodeJs", "ExpressJS", "PHP", "Laravel"]'>
+                value='["HTML", "CSS", "JavaScript", "React", "MySql", "NodeJs", "ExpressJS", "PHP", "Laravel"]'>
         </div>
 
         <div class="form-control my-2 d-flex align-tiems-start flex-column">

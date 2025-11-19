@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,10 @@ class ProjectsController extends Controller
     // Show the form for creating a new resource.
     public function create()
     {
-        return view('projects.create');
+        // get the categories
+        $categories = Category::all();
+
+        return view('projects.create', compact('categories'));
     }
 
     // Store a newly created resource in storage.
@@ -30,7 +34,8 @@ class ProjectsController extends Controller
         
         $newProject->name = $data['name'];
         $newProject->description = $data['description'];
-        $newProject->tech_stack = json_encode($data['tech_stack']);
+        $newProject->category_id = $data['category_id'];
+        $newProject->tech_stack = $data['tech_stack'];
         $newProject->img = $data['img'];
         $newProject->repo_link = $data['repo_link'];
         
@@ -48,7 +53,10 @@ class ProjectsController extends Controller
     // Show the form for editing the specified resource.
     public function edit(Project $project)
     {
-        return view('projects.edit', data: compact('project'));
+        // get the categories
+        $categories = Category::all();
+
+        return view('projects.edit', data: compact('project', 'categories'));
     }
 
     // Update the specified resource in storage.
@@ -58,6 +66,7 @@ class ProjectsController extends Controller
 
         $project->name = $data['name'];
         $project->description = $data['description'];
+        $project->category_id = $data['category_id'];
         $project->tech_stack = $data['tech_stack'];
         $project->img = $data['img'];
         $project->repo_link = $data['repo_link'];

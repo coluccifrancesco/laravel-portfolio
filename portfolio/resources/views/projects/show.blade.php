@@ -39,15 +39,10 @@
                 <p>{{ $project->description }}</p>
                 
                 <?php $stack = json_decode($project->tech_stack); ?>
-                <div class="my-5 d-flex justify-content-between align-items-center">
-                    
-                    @if (is_array($stack))
-                        @foreach ($stack as $tech)
-                            <p class="mb-0">{{ $tech }}</p>
-                        @endforeach
-                    @else
-                        <p class="mb-0">{{ $stack }}</p>
-                    @endif
+                <div class="my-4 d-flex justify-content-between align-items-center flex-wrap">
+                    @foreach ($stack as $tech)
+                        <p class="mx-3 my-2">{{ $tech }}</p>
+                    @endforeach
                 </div>
             </div>
 
@@ -56,6 +51,5 @@
             </div>
         </div>
     </div>
-    
 
 @endsection
