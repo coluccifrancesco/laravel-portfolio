@@ -2,17 +2,25 @@
 
 @section('content')
 
-    <div class="row p-4 m-4 text-white">
+    <button class="d-block mx-auto mt-5 btn btn-success">
+        <a href="{{ route('projects.create') }}" class="text-white link-underline link-underline-opacity-0">Nuovo progetto <i class="fa-solid fa-plus"></i></a>
+    </button>
+    
+    <div class="row p-4 m-4 mt-0 text-white">
 
-        <a href="{{ route('projects.create') }}">Nuovo progetto</a>
-        
         @foreach ($projects as $project)
 
             <div class="col-12 col-md-6 col-lg-4 p-4 my-2">
                 <div class="h-100 p-4 border rounded d-flex align-items-start justify-content-between flex-column">
                     <img src="{{ $project->img }}" alt="img">
                     
-                    <h2 class="mt-2">{{ $project->name }}</h2>
+                    <div class="w-100 d-flex justify-content-between align-items-center">
+                        <h2 class="mt-2">{{ $project->name }}</h2>
+
+                        @if ($project->category->name != 'null')
+                            <p class="m-0">{{ $project->category->name }}</p>
+                        @endif
+                    </div>
                     <p class="mb-0">{{ $project->description }}</p>
 
                     <div class="row my-3 w-100">
@@ -36,7 +44,7 @@
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <button class="btn btn-primary">
                             <a 
-                            class="text-white" 
+                            class="text-white link-underline link-underline-opacity-0" 
                             href="{{ route('projects.show', $project->id) }}">
                                 In detail
                             </a>

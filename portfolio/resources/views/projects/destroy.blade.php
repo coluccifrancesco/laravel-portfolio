@@ -8,7 +8,7 @@
 
         <div class="d-flex align-items-center justify-content-between mt-5">
             <button class="btn btn-primary">
-                <a class="text-white" href="{{ route('projects.show', $project->id) }}">No</a>
+                <a class="text-white link-underline link-underline-opacity-0" href="{{ route('projects.show', $project->id) }}">No</a>
             </button>
 
             <form action="{{ route('projects.destroy', $project->id) }}" method="POST">

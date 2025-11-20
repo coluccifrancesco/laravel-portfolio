@@ -54,8 +54,7 @@
             <input type="submit" value="Update" class="btn btn-warning mt-3">
 
             <button class="btn btn-primary">
-                <a href="{{ route('projects.index') }}" class="text-white">Go back<i
-                        class="ms-2 fa-solid fa-arrow-left"></i></a>
+                <a href="{{ route('projects.index') }}" class="text-white link-underline link-underline-opacity-0">Go back<i class="ms-2 fa-solid fa-arrow-left"></i></a>
             </button>
         </div>
     </form>
