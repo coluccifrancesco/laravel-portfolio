@@ -48,7 +48,7 @@ Route::put('/category/{category}', [CategoriesController::class, 'update'])->nam
 // Delete - Projects
 Route::delete('/project/{project}/destroy', [ProjectsController::class, 'destroy'])->name('projects.destroy');
 
-// Delete - Projects
+// Delete - Category
 Route::delete('/category/{category}/destroy', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 
 
