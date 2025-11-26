@@ -12,7 +12,7 @@ class CategoriesTableSeeder extends Seeder {
     // Run the database seeds
     public function run(Faker $faker): void {
         
-        for ($i = 0; $i < 9; $i++) { 
+        for ($i = 0; $i < 3; $i++) { 
     
             $newCategory = new Category();
 

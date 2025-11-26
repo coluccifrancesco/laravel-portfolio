@@ -12,7 +12,7 @@ class ProjectsTableSeeder extends Seeder {
     // Run the database seeds.
     public function run(Faker $faker): void {
         
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=0; $i < 3; $i++) { 
             
             $newProject = new Project();
 
@@ -20,7 +20,7 @@ class ProjectsTableSeeder extends Seeder {
             $newProject->description = $faker->paragraph(5);
             $newProject->img = $faker->word();
             $newProject->repo_link = $faker->url();
-            $newProject->category_id = $faker->randomNumber(1, true);
+            $newProject->category_id = $faker->numberBetween(1, 3);
 
             $newProject->save();
         }

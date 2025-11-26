@@ -10,23 +10,15 @@ use Faker\Generator as faker;
 class TagsTableSeeder extends Seeder {
     
     // Run the database seeds.
-    public function run(Faker $faker): void
-    {
-        $tags = [
-            "Sviluppo Web",
-            "Framework",
-            "Internet",
-            "Tutorial",
-            "News"
-        ];
+    public function run(Faker $faker): void {
 
-        foreach ($tags as $tag) {
+        for ($i = 0; $i < 3; $i++) { 
             
             $newTag = new Tag();
-
-            $newTag->name = $tag;
+    
+            $newTag->name = $faker->word();
             $newTag->color = $faker->hexColor();
-
+    
             $newTag->save();
         }
     }
