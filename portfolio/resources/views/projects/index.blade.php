@@ -23,23 +23,7 @@
                     </div>
                     <p class="mb-0">{{ $project->description }}</p>
 
-                    <div class="row my-3 w-100">
-                        
-                        <?php $stack = json_decode($project->tech_stack); ?>
-                        
-                        @if (is_array($stack))
-                            @foreach ($stack as $tech)
-                                <div class="col-4">
-                                    <p class="mb-0">{{ $tech }}</p>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="col-4">
-                                <p class="mb-0">{{ $stack }}</p>
-                            </div>
-                        @endif
-
-                    </div>
+                    {{-- Inserire lo stack --}}
 
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <button class="btn btn-primary">

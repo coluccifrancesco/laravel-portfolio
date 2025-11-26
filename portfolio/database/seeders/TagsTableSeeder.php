@@ -17,7 +17,8 @@ class TagsTableSeeder extends Seeder {
             $newTag = new Tag();
     
             $newTag->name = $faker->word();
-            $newTag->color = $faker->hexColor();
+            $newTag->bg_color = $faker->hexColor();
+            $newTag->font_color = $faker->hexColor();
     
             $newTag->save();
         }

@@ -65,14 +65,20 @@ class CategoriesController extends Controller {
         return redirect()->route('categories.show', $category);
     }
 
+    // Asks if we're sure about deleting the project
+    public function sureOfDestroy(Category $category){
+
+        return view('categories.destroy', data: compact('category'));
+    }
+
     
     // Remove the specified resource from storage
-    public function destroy(Category $category, Project $project)
-    {
-        Project::where('category_id', $category->id)->update(['category_id' => 'null']);
-
+    public function destroy(Category $category, Project $project) {
+        if ($category->project()->count() > 0) {
+            return back()->withErrors(['error' => 'Impossibile eliminare: categoria in uso']);
+        }
+        
         $category->delete();
-
         return redirect()->route('categories.index');
     }
 }

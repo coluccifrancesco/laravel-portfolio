@@ -49,6 +49,9 @@
                         <li>
                             <a class="nav-link" href="{{url('/category') }}">{{ __('Categories') }}</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="{{url('/tech') }}">{{ __('Tech Stack') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
