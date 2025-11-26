@@ -13,7 +13,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description');
-            $table->json('tech_stack');
             $table->string('img');
             $table->string('repo_link');
             $table->timestamps();

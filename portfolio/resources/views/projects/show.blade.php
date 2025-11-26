@@ -44,12 +44,10 @@
             <div class="col-12 col-md-6">
                 <p>{{ $project->description }}</p>
 
-                <?php $stack = json_decode($project->tech_stack); ?>
-                <div class="my-4 d-flex justify-content-between align-items-center flex-wrap">
-                    @foreach ($stack as $tech)
-                        <p class="mx-3 my-2">{{ $tech }}</p>
-                    @endforeach
-                </div>
+                @forelse ($project->tags as $tag)
+                    <span class="badge mb-4" style="background-color: {{ $tag->color }};">{{ $tag->name }}</span>
+                @empty
+                @endforelse
             </div>
 
             <div class="col-12 col-md-6">
