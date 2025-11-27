@@ -28,7 +28,7 @@
             <p class="w-100 mb-1">Tags</p>
 
             @foreach ($tags as $tag)
-                <div class="mx-1 border rounded p-2 m-1" style="background-color: {{ $tag->color }};">
+                <div class="mx-1 border rounded p-2 m-1" style="background-color: {{ $tag->bg_color }}; color:{{ $tag->font_color }}">
                     <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="tag-{{ $tag->id }}">
                     <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
                 </div>
