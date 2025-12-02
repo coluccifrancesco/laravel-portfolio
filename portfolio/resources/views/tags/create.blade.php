@@ -18,7 +18,7 @@
             <label for="bg-color">Background</label>
             <input 
                 type="color" 
-                name="bg-color" 
+                name="bg_color" 
                 id="bg-color"
                 value="#000000"
             >
@@ -29,7 +29,7 @@
             <label for="font-color">Font</label>
             <input 
                 type="color" 
-                name="font-color" 
+                name="font_color" 
                 id="font-color"
                 value="#FFFFFF"
             >

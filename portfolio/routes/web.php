@@ -45,6 +45,7 @@ Route::get('/tech/{tag}/edit', [TagsController::class, 'edit'])->name('tags.edit
 
 Route::get('/tech/{tag}/areyousure', [TagsController::class, 'sureOfDestroy'])->name('tags.sureOfDestroy');
 
+
 // Post - Projects
 Route::post('/project/create', [ProjectsController::class, 'store'])->name('projects.store');
 
