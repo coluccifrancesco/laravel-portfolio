@@ -18,7 +18,6 @@ class ProjectsTableSeeder extends Seeder {
 
             $newProject->name = $faker->word();
             $newProject->description = $faker->paragraph(5);
-            $newProject->img = $faker->word();
             $newProject->repo_link = $faker->url();
             $newProject->category_id = $faker->numberBetween(1, 3);
 

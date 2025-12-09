@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Project;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsController extends Controller {
     
@@ -39,8 +40,14 @@ class ProjectsController extends Controller {
         $newProject->name = $data['name'];
         $newProject->description = $data['description'];
         $newProject->category_id = $data['category_id'];
-        $newProject->img = $data['img'];
         $newProject->repo_link = $data['repo_link'];
+
+        // Image upload request check
+        if (array_key_exists('img', $data)) {
+            
+            $img_url = Storage::putFile('projects', $data['img']);
+            $newProject->img = $img_url;
+        } 
         
         $newProject->save();
 
@@ -80,8 +87,20 @@ class ProjectsController extends Controller {
         $project->name = $data['name'];
         $project->description = $data['description'];
         $project->category_id = $data['category_id'];
-        $project->img = $data['img'];
         $project->repo_link = $data['repo_link'];
+
+        // Image update request check
+        if (array_key_exists('img', $data)) {
+            
+            // delete previous image
+            Storage::delete($project->img);
+
+            // add new image
+            $img_url = Storage::putFile('projects', $data['img']);
+            
+            // update db
+            $project->img = $img_url;
+        }
         
         $project->update();
 
@@ -109,6 +128,14 @@ class ProjectsController extends Controller {
     // Remove the specified resource from storage.
     public function destroy(Project $project){
 
+        // Check if project has image
+        if ($project->img) {
+
+            // delete image
+            Storage::delete($project->img);
+        }
+
+        $project->tags()->detach();
         $project->delete();
 
         return redirect()->route('projects.index');

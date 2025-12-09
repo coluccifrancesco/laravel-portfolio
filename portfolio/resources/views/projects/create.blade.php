@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="{{ route('projects.store') }}" method="POST" class="w-50 mx-auto mt-5 border rounded p-4">
+    <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data" class="w-50 mx-auto mt-5 border rounded p-4">
         @csrf
 
         <div class="form-control my-2 d-flex align-tiems-start flex-column">
@@ -36,8 +36,8 @@
         </div>
 
         <div class="form-control my-2 d-flex align-tiems-start flex-column">
-            <label for="img">Img Path</label>
-            <input type="text" name="img" id="img">
+            <label for="img">Image</label>
+            <input type="file" name="img" id="img">
         </div>
 
         <div class="form-control my-2 d-flex align-tiems-start flex-column">

@@ -12,8 +12,11 @@
 
             <div class="col-12 col-md-6 col-lg-4 p-4 my-2">
                 <div class="h-100 p-4 border rounded d-flex align-items-start justify-content-between flex-column">
-                    <img src="{{ $project->img }}" alt="img">
                     
+                    @if ($project->img)
+                        <img src="{{ asset('storage/' . $project->img) }}" alt="img-{{ $project->name }}" class="w-100">
+                    @endif
+
                     <div class="w-100 d-flex justify-content-between align-items-center">
                         <h2 class="mt-2">{{ $project->name }}</h2>
 

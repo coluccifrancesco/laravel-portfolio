@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->string('repo_link');
             $table->timestamps();
         });

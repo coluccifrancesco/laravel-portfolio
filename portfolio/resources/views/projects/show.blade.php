@@ -50,8 +50,10 @@
                 @endforelse
             </div>
 
-            <div class="col-12 col-md-6">
-                <img src="{{ $project->img }}" alt="img">
+            <div class="col-12 col-md-6">    
+                @if ($project->img)
+                    <img src="{{ asset('storage/' . $project->img) }}" alt="img-{{ $project->name }}" class="w-100">
+                @endif
             </div>
         </div>
 
